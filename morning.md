@@ -1,24 +1,6 @@
 ---
-# theme: seriph
-theme: academic
-# background: 002147
-defaults:
-  layout: standard
-title: Crash Course on Software Engineering for Researchers
-info: |
-    One-day course description
-class: text-center
-transition: slide-left
-mdc: true
-addons:
-  - fancy-arrow
 routeAlias: morning
 ---
-
-::center
-# Crash Course on Software Engineering
-# for Researchers
-::
 
 ::centralise::
 
@@ -81,18 +63,16 @@ src: ./pages/codespaces-intro-python.md
 
 ---
 
-::centralise::
-
 # Reproducibility and collaboration
 
----
-
-# Reproducibility and collaboration
+<v-click>
 
 - **<Link to="writing-clean-code" title="Writing Clean Code" />**
 - <Link to="testing" title="Testing" />
 - <Link to="dependency-management" title="Dependency management" />
 - <Link to="version-control" title="Version Control" />
+
+</v-click>
 
 ---
 src: ./modules/writing-clean-code.md

@@ -13,6 +13,8 @@ routeAlias: "workflow-managers"
 
 # Snakemake
 
+<span />
+
 A tool to create **reproducible** and **scalable** data analyses.
 
 Workflows are described via a human **readable, Python based language**.
@@ -71,9 +73,11 @@ Run a workflow by hand...
 
 <div class="text-sm">
 Before you start, generate a file with random words:
+
 ```bash
 python generate.py
 ```
+
 Let's create a frequency plot of the words in that file.
 </div>
 ::
@@ -83,9 +87,11 @@ Let's create a frequency plot of the words in that file.
 <p>
 Use another script to count the frequency of words in the file and output the results:
 <span v-mark.underline.orange="1">
+
 ```bash
 python count_words.py -in data/doc.txt -out output/wc.txt
 ```
+
 </span>
 </p>
 
@@ -102,6 +108,8 @@ transition: "none"
 
 # Snakemake
 
+<span />
+
 Command:
 ```bash
 python count_words.py -in data/doc.txt -out output/wc.txt
@@ -111,6 +119,7 @@ python count_words.py -in data/doc.txt -out output/wc.txt
 
 <v-click>
 Translated to Snakemake:
+
 ```python
 rule count_words:
     input:
@@ -122,11 +131,13 @@ rule count_words:
         python count_words.py -in {input} -out {output}
         """
 ```
+
 </v-click>
 
 <div class="h-7" />
 
 <v-click>
+
 ```mermaid
 graph LR
     A[ ]:::hidden --"data/doc.txt"--> B[count_words]
@@ -136,11 +147,14 @@ graph LR
     style C stroke-dasharray: 5 5
     style D stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
 ```
+
 </v-click>
 
 ---
 
 # Snakemake
+
+<span />
 
 Command:
 ```bash
@@ -151,6 +165,7 @@ python words_chart.py
 
 <v-click>
 Translated to Snakemake:
+
 ```python
 rule words_chart:
     input:
@@ -160,11 +175,13 @@ rule words_chart:
     script:
         "words_chart.py"
 ```
+
 </v-click>
 
 <div class="h-7" />
 
 <v-click>
+
 ```mermaid
 graph LR
     A[ ]:::hidden --"data/doc.txt"--> B[count_words]
@@ -173,6 +190,7 @@ graph LR
     style A stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
     style D stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
 ```
+
 </v-click>
 
 ---
@@ -211,6 +229,7 @@ rule words_chart:
 ::right::
 
 <v-click>
+
 ```bash
 snakemake --snakefile onefile.smk --cores 1
 ```
@@ -222,6 +241,8 @@ Open `words_chart.txt` to see the results.
 ---
 
 # Snakemake
+
+<span />
 
 What if we have more than one file?
 

@@ -46,7 +46,7 @@ Greg Wilson, SWC<br/><div style="font-size: 0.8rem;"><i>First Executive Director
 
 # Version Control
 
-<div class="h-10" />
+<div class="h-5" />
 
 - These skills will save you time
 - Always assume others will use and develop your software
@@ -271,15 +271,18 @@ git log               # show commit history
 
 <div class="flex flex-col justify-between items-center w-45 h-100% text-sm">
 Commit to main branch
+
 ```mermaid {scale: 0.8}
 gitGraph BT:
   commit id: "First"
   commit id: "Second"
 ```
+
 </div>
 
 <div v-click class="flex flex-col justify-between items-center w-45 h-100% text-sm">
 Create a new branch, make commits to it
+
 ```mermaid {scale: 0.8}
 gitGraph BT:
   commit id: "First"
@@ -287,10 +290,12 @@ gitGraph BT:
   branch feature
   commit id: "New thing"
 ```
+
 </div>
 
 <div v-click class="flex flex-col justify-between items-center w-45 h-100% text-sm">
 Changes independent of main branch
+
 ```mermaid {scale: 0.8}
 gitGraph BT:
   commit id: "First"
@@ -300,10 +305,12 @@ gitGraph BT:
   checkout main
   commit id: "Other work"
 ```
+
 </div>
 
 <div v-click class="flex flex-col justify-between items-center w-45 h-100% text-sm">
 Merge commit
+
 ```mermaid {scale: 0.8}
 gitGraph BT:
   commit id: "First"
@@ -314,6 +321,7 @@ gitGraph BT:
   commit id: "Other work"
   merge feature
 ```
+
 </div>
 
 </div>

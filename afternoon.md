@@ -1,24 +1,6 @@
 ---
-# theme: seriph
-theme: academic
-background: #002147
-defaults:
-  layout: standard
-title: Crash Course on Software Engineering for Researchers
-info: |
-    One-day course description
-class: text-center
-transition: slide-left
-mdc: true
-addons:
-  - fancy-arrow
 routeAlias: afternoon
 ---
-
-::center
-# Crash Course on Software Engineering
-# for Researchers
-::
 
 ::centralise::
 
@@ -31,12 +13,6 @@ src: ./pages/afternoon-toc.md
 ---
 src: ./pages/oxrse-showcase.md
 ---
-
----
-
-::centralise::
-
-# Automation and collaborative coding
 
 ---
 src: ./pages/afternoon-toc.md

@@ -6,7 +6,8 @@ routeAlias: writing-clean-code
 ---
 
 # Writing Clean Code
-### Organise your files
+
+## Organise your files
 
 ::left::
 
@@ -33,6 +34,7 @@ Flat
 ::right::
 
 <v-click>
+
 ```
 Structured
 ├─ README.md
@@ -52,6 +54,7 @@ Structured
 │  └─ notes.docx
 └─ dist
 ```
+
 </v-click>
 
 <!--
@@ -68,7 +71,8 @@ class: gap-4
 ---
 
 # Writing Clean Code
-### Use meaningful names
+
+## Use meaningful names
 
 ::left::
 
@@ -80,10 +84,12 @@ def convert(x):
 ::right::
 
 <v-click>
+
 ```python
 def celsius_to_fahrenheit(celsius):
     ...
 ```
+
 </v-click>
 
 ---
@@ -92,7 +98,8 @@ class: gap-4
 ---
 
 # Writing Clean Code
-### Use meaningful names - _provides context for AI..._
+
+## Use meaningful names - _provides context for AI..._
 
 ::left::
 
@@ -130,7 +137,8 @@ class: gap-4
 ---
 
 # Writing Clean Code
-### But context can also be a constraint for AI...
+
+## But context can also be a constraint for AI...
 
 ::left::
 
@@ -196,14 +204,15 @@ def levenshtein(a, b):
 
 <v-click>
 
-_AI (re)-invented the algorithm because it was constrained to the script context_
+AI (re)-invented the algorithm because it was constrained by the script context
 
 </v-click>
 
 ---
 
 # Writing Clean Code
-### Use consistent naming conventions
+
+## Use consistent naming conventions
 
 <div class="h-10" />
 
@@ -232,7 +241,7 @@ layout: two-cols-header
 
 # Writing Clean Code
 
-### Linters
+## Linters
 - Compares your code to a standard (e.g. PEP)
 - Identifies programming errors, bugs, stylistic errors
 
@@ -294,11 +303,13 @@ def hello():
 
 # Writing Clean Code
 
-### Auto-formatters
+## Auto-formatters
 - Applies stylistic conventions
 
 <div class="flex justify-center">
+
 <div class="w-1/2 p-4">
+
 ```python
 def calc(a,b,c=2):
  x=a+b+c
@@ -309,8 +320,10 @@ nums=[1,2,3]
 out=calc(   nums [0],nums [1] ,c = 5  )
 print( out )
 ```
+
 </div>
 <div class="w-1/2 p-4">
+
 ```python
 def calc(a, b, c=2):
     x = a + b + c
@@ -322,9 +335,9 @@ nums = [1, 2, 3]
 out = calc(nums[0], nums[1], c=5)
 print(out)
 ```
-</div>
-</div>
 
+</div>
+</div>
 
 <v-clicks>
 
@@ -340,7 +353,8 @@ class: items-center
 ---
 
 # Writing Clean Code
-### Documentation
+
+## Documentation
 
 ::left::
 
@@ -360,7 +374,8 @@ In code:
 ---
 
 # Writing Clean Code
-### Documentation
+
+## Documentation
 
 <div class="h-10" />
 
@@ -375,27 +390,32 @@ layout: "two-cols-header"
 ---
 
 # Writing Clean Code
-### Documentation - docstrings
+
+## Documentation - docstrings
 
 ::left::
 
 <div class="p-4">
+
 ```python
 def celsius_to_fahrenheit(celsius):
 	"""Convert celsius to Fahrenheit"""
 	return 32 + 1.8 * celsius
 ```
+
 </div>
 
 ::right::
 
 <div class="p-4">
+
 ```python
 > help(celsius_to_fahrenheit)
 
 celsius_to_fahrenheit(celsius)
     Convert celsius to Fahrenheit
 ```
+
 </div>
 
 ---
@@ -403,11 +423,13 @@ layout: "two-cols-header"
 ---
 
 # Writing Clean Code
-### Documentation - docstrings
+
+## Documentation - docstrings
 
 ::left::
 
 <div class="p-4">
+
 ```python
 def add3(a, b, c):
 	"""Add three numbers
@@ -423,13 +445,15 @@ def add3(a, b, c):
 	"""
 	...
 ```
+
 </div>
 
-<small><i>A potential use for AI</i></small>
+A use case for AI
 
 ::right::
 
 <div class="p-4">
+
 ```python
 > help(add3)
 
@@ -445,6 +469,7 @@ add3(a, b, c)
 	Returns:
 		Sum of three numbers
 ```
+
 </div>
 
 ---
@@ -452,13 +477,14 @@ transition: none
 ---
 
 # Writing Clean Code
-### Documentation - scaffolding
+
+## Documentation - scaffolding
 
 
 <br>
 
-<div class="flex justify-center">
-    <div class="w-3/4 p-4">
+<div class="w-3/4 p-4">
+
 Using annotations to scaffold code:
 
 ```python
@@ -472,7 +498,7 @@ Using annotations to scaffold code:
 # Print final word count
 ...
 ```
-    </div>
+
 </div>
 
 ---
@@ -480,13 +506,14 @@ transition: none
 ---
 
 # Writing Clean Code
-### Documentation - scaffolding
+
+## Documentation - scaffolding
 
 
 <br>
 
-<div class="flex justify-center">
-    <div class="w-3/4 p-4">
+<div class="w-3/4 p-4">
+
 Using annotations to scaffold code:
 
 ```python
@@ -500,22 +527,21 @@ word_count = word_count + 10
 # Print final word count
 print(word_count)
 ```
-<i><small>AI can use this scaffolding to suggest code</small></i>
-    </div>
-</div>
 
+AI can use this scaffolding to suggest code
+</div>
 
 ---
 
 # Writing Clean Code
-### Documentation - scaffolding
+
+## Documentation - scaffolding
 
 
 
 <br>
 
-<div class="flex justify-center">
-    <div class="w-3/4 p-4">
+<div class="w-3/4 p-4">
 Tidy-up - <small><i>consolidate comments:</i></small>
 
 ```python
@@ -525,15 +551,16 @@ word_count = calculate_word_count(data)
 word_count = word_count + 10
 print(word_count)
 ```
-</div></div>
+
+</div>
 
 ---
 
 # Writing Clean Code
-### Documentation - annotations
 
-<div class="flex justify-center">
-    <div class="w-3/4 p-4">
+## Documentation - annotations
+
+<div class="w-3/4 p-4">
 <br>
 Real world example (useful):
 
@@ -541,7 +568,7 @@ Real world example (useful):
 # we don't use path.splitext to also handle extensions like .cdt.dpa
 filename, ext = filepath.split(".", maxsplit=1)
 ```
-    </div>
+
 </div>
 
 <br>
@@ -558,7 +585,8 @@ explain <b>why</b> <i>(provide context)</i>
 ---
 
 # Writing Clean Code
-### Single responsibility principle
+
+## Single responsibility principle
 
 <div class="h-10" />
 
@@ -572,7 +600,8 @@ layout: "two-cols-header"
 ---
 
 # Writing Clean Code
-### Single responsibility principle
+
+## Single responsibility principle
 
 ::left::
 
@@ -580,7 +609,7 @@ layout: "two-cols-header"
 
 One large script
 
-```python {*}{maxHeight:'340px'}
+```python {*}{maxHeight:'330px'}
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -651,7 +680,7 @@ def write_report(p_value)
 
 # Writing Clean Code
 
-### Coding with AI:
+## Coding with AI:
 
 <div class="h-4" />
 
@@ -665,7 +694,7 @@ def write_report(p_value)
 
 # Writing Clean Code
 
-### Coding with AI:
+## Coding with AI:
 
 <div class="h-4" />
 
@@ -724,15 +753,19 @@ Navigate to the project:<br />
 - Select **New File** and name it `main.py`
 - Populate the file with:
 ::center
+
 ```python
 print(“Hello World”)
 ```
+
 ::
 - Run from the terminal:
 ::center
+
 ```bash
 python main.py
 ```
+
 ::
 
 ---

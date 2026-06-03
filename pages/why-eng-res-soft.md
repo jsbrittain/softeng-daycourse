@@ -1,6 +1,8 @@
 ::centralise::
 
-# Why <span v-mark.underline.orange="1">engineer</span> research software?
+# Introduction
+
+## Why <span v-mark.underline.orange="1">engineer</span> research software?
 
 ---
 
@@ -170,7 +172,7 @@ With pressure to published, there has been a reproducilbiity crisis in science
 
 </div>
 
-<div v-click class="absolute top-30 left-130 text-left inline-block border border-gray-400 px-3 py-1 rounded shadow bg-white dark:bg-black">
+<div v-click class="absolute top-30 left-140 text-left inline-block border border-gray-400 px-3 py-1 rounded shadow bg-white dark:bg-black">
   What happens when…
   <ul>
   <li>You have a follow-on project?</li>
@@ -179,8 +181,8 @@ With pressure to published, there has been a reproducilbiity crisis in science
   </ul>
 </div>
 
-<div v-click class="absolute top-10 left-80 inline-block border border-gray-400 px-3 py-1 rounded shadow">
-  When should you have considered how to engineer your software?
+<div v-click class="absolute top-65 left-130 inline-block border border-gray-400 px-3 py-1 rounded shadow bg-white dark:bg-black">
+  When should you have <b>considered</b> how to engineer your software?
 </div>
 
 ::

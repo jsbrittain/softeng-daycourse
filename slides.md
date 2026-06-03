@@ -1,35 +1,29 @@
 ---
-theme: academic
+theme: oxrse
 defaults:
   layout: standard
-layout: cover
 title: Crash Course on Software Engineering for Researchers
-info: |
-    One-day course description
 class: text-center
 transition: slide-left
 mdc: true
 addons:
   - fancy-arrow
-autoSlide: 3000  # autoplay interval in milliseconds (3000 = 3s)
+autoSlide: 3000 # autoplay interval in milliseconds (3000 = 3s)
 loop: true
+layout: cover
 ---
-
-# Crash Course on Software Engineering for Researchers
-
-## Oxford Research Software Engineering Group
 
 ---
 layout: three-panels-header
 ---
 
-# Crash Course on Software Engineering
-# for Researchers
+# Crash Course on Software Engineering for Researchers
 
 ::left::
 
 ::center
 <Link to="morning" title="Morning session" />
+::
 
 ::small
 
@@ -47,6 +41,7 @@ Version control
 
 ::center
 <Link to="afternoon" title="Afternoon session" />
+::
 
 ::small
 
@@ -64,6 +59,7 @@ Workflow managers
 
 ::center
 <Link to="reference-material" title="Reference material" />
+::
 
 ::small
 

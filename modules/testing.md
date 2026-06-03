@@ -4,27 +4,27 @@ routeAlias: "testing"
 
 # All Software has Issues
 
-<div class="h-10" />
+<span />
 
 Code will always have issues
 - e.g. bugs, things we want to add or improve
 
 
-It's not enough to know about them, we need to **manage them**
+It's not enough to know about them, we need to **manage** them
 - Identify, record, prioritise
 
 ---
 
 # Testing
 
-<div class="h-10" />
+<div class="h-5" />
 
 Humans are fallible! Our software will contain defects
   - In requirements, design, as well as code
   - 1-10-150 hours to fix in design/development/production
   - Microsoft Study estimated 10-20 defects per 1000 lines of code
 
-<div class="h-10" />
+<div class="h-5" />
 
 <v-click>
 
@@ -138,9 +138,12 @@ Automated testing should supplement, but not replace, all manual testing
 
 # Automated Testing
 
+<span />
+
 **Unit tests**: Test specific units of functionality, ensuring expected outputs from given inputs.
 
 <v-click>
+
 ```python
 def celsius_to_fahrenheit(celsius):
     return 32 + 1.8 * celsius
@@ -151,18 +154,23 @@ celsius_to_fahrenheit(1.0)
 celsius_to_fahrenheit(12.34)
 > 54.212
 ```
+
 </v-click>
 
 <v-click at="2">
 <div>
+
 ```python {none|all|none}
 def test_celsius_to_fahrenheit():
 	assert celsius_to_fahrenheit(1.0) == 33.8
     assert celsius_to_fahrenheit(12.34) == 54.212
 ```
-</div></v-click>
+
+</div>
+</v-click>
 
 <v-click at="3">
+
 ```python
 import numpy as np
 
@@ -170,6 +178,7 @@ def test_celsius_to_fahrenheit():
 	assert np.isclose(celsius_to_fahrenheit(1.0), 33.8)
     assert np.isclose(celsius_to_fahrenheit(12.34), 54.212)
 ```
+
 </v-click>
 
 ---
@@ -245,9 +254,12 @@ transition: "none"
 
 # Automated Testing
 
+<div>
 <b>Unit tests</b>: Test specific units of functionality, ensuring expected outputs from given inputs.
+</div>
 
-<!---
+<!--
+-
 innocuous change breaks code before release
 -->
 
@@ -328,6 +340,8 @@ AI-generated tests can be trivial or miss important edge cases
 ---
 
 # PyTest
+
+<span />
 
 pytest: a framework for automated testing
 - Automatically finds any function starting in `test_` or ends in `_test`

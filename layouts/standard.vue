@@ -7,12 +7,16 @@
 </script>
 
 <template>
-  <div class="slidev-layout flex flex-col">
+  <div class="slidev-layout flex flex-col h-full">
     <div class="header">
       <slot />
     </div>
-    <div class="slidev-layout flex flex-col justify-center p-0 " :class="class">
-        <slot name="centralise" />
+
+    <div
+      class="flex-1 flex flex-col justify-center p-0"
+      :class="class"
+    >
+      <slot name="centralise" />
     </div>
   </div>
 </template>

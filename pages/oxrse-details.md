@@ -39,6 +39,5 @@ Topics include:
 
 <div class="h-4" />
 
-<img src="../img/oxrse-qr.png" width="100">
+<img src="../img/oxrse-qr.png" width="20%">
 ::
-

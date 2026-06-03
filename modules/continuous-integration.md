@@ -190,6 +190,8 @@ _Example_
 
 # Documentation
 
+<span />
+
 **Sphinx** - Build HTML documents from structured text (e.g. markdown, reST)
 
 **ReadTheDocs** - Hosts HTML documents
@@ -210,6 +212,8 @@ Changes to the documentation (or code) can trigger documentation builds
 
 # Documents
 
+<span />
+
 **GitHub Pages** - Host static HTML documents
 
 Host documents on GitHub and publish them on GitHub Pages
@@ -224,8 +228,9 @@ https://github.com/OxfordRSE/softeng-daycourse
 
 ---
 
-
 # Publish Python packages
+
+<span />
 
 Automatically publish to the Python Package Index (PyPI)
 <br /><br /><br />
@@ -241,6 +246,8 @@ https://github.com/pybamm-team/PyBaMM
 ---
 
 # Application builds
+
+<span />
 
 Triggered builds of Windows / MacOS / Linux applications
 <br /><br /><br />

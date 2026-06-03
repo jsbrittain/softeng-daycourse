@@ -1,6 +1,6 @@
 # OxRSE
 
-::centralise::
+<span />
 
 We collaborate with researchers at the University of Oxford to develop research software solutions.
 
@@ -12,7 +12,7 @@ Our group provides expertise in various aspects of research support, including:
 - Code reviews
 - Teaching tailored to your research needs
 
-<div class="h-10"></div>
+<div class="h-16"></div>
 
 ::center
 

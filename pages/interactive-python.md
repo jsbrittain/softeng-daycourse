@@ -34,7 +34,7 @@ Interactive workshop pre-requisites:
 - Laptop with internet
 - Github account (https://github.com/)
 
-<div class="h-10"></div>
+<div class="h-28"></div>
 
 :: center
 If you haven’t already, please ensure that you have these now...
