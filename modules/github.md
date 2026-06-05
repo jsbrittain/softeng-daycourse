@@ -186,7 +186,7 @@ layout: instruction
 ::left::
 
 ::center
-Create a new repository, clone and push changes
+Create a new repository,<br />clone and push changes
 ::
 
 ::right::

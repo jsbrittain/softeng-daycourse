@@ -202,7 +202,7 @@ rightClass: "items-center justify-center"
   <div class="flex flex-col items-center space-y-1">
     <div class="flex space-x-1">
       <span v-mark.circle.red="8">
-        <div class="w-40 h-20 bg-yellow-500 text-white flex items-center justify-center rounded" v-click="0">venv</div>
+        <div class="w-40 h-20 bg-yellow-500 text-white flex items-center justify-center rounded">venv</div>
       </span>
     </div>
     <div class="flex space-x-1">
@@ -288,8 +288,6 @@ Numpy v2
 
 ::right::
 
-Instructor demo / follow-along:
-
 - Create a venv called "`venv_np2`":
   ```bash
   python -m venv venv_np2
@@ -332,7 +330,6 @@ Numpy v1
 
 ::right::
 
-Instructor demo / follow-along:
 - Create a venv called "`venv_np1`":
   ```bash
   python -m venv venv_np1
@@ -392,7 +389,7 @@ layout: instruction
 ::left::
 
 ::center
-Create an environment that allows an old script to run
+Create an environment that allows <br/> an old script to run
 ::
 
 ::right::

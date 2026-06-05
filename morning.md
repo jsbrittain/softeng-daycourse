@@ -65,14 +65,10 @@ src: ./pages/codespaces-intro-python.md
 
 # Reproducibility and collaboration
 
-<v-click>
-
 - **<Link to="writing-clean-code" title="Writing Clean Code" />**
 - <Link to="testing" title="Testing" />
 - <Link to="dependency-management" title="Dependency management" />
 - <Link to="version-control" title="Version Control" />
-
-</v-click>
 
 ---
 src: ./modules/writing-clean-code.md

@@ -23,9 +23,11 @@ The instructor will usually walk through the steps involved at this point.
 <div class="h-5"></div>
 
 ::center
+
 Code samples are in:
 
-# Python
+## Python
+
 ::
 
 <div class="h-5"></div>
@@ -40,6 +42,6 @@ Interactive workshop pre-requisites:
 If you haven’t already, please ensure that you have these now...
 ::
 
-<div class="absolute top-48 right-10 w-[20%]">
+<div class="absolute top-55 right-15 w-[20%]">
 <img src="../img/oxrse-softeng.png" alt="http://blog.oxrse.uk/softeng-daycourse/" style="width: 100%;"/>
 </div>

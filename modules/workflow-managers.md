@@ -138,6 +138,8 @@ rule count_words:
 
 <v-click>
 
+::center
+
 ```mermaid
 graph LR
     A[ ]:::hidden --"data/doc.txt"--> B[count_words]
@@ -147,6 +149,8 @@ graph LR
     style C stroke-dasharray: 5 5
     style D stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
 ```
+
+::
 
 </v-click>
 
@@ -182,6 +186,8 @@ rule words_chart:
 
 <v-click>
 
+::center
+
 ```mermaid
 graph LR
     A[ ]:::hidden --"data/doc.txt"--> B[count_words]
@@ -190,6 +196,8 @@ graph LR
     style A stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
     style D stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
 ```
+
+::
 
 </v-click>
 

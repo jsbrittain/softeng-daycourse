@@ -12,7 +12,6 @@ routeAlias: "continuous-integration"
 
 # Continuous Integration (CI)
 
-<div class="h-6" />
 
 ## Challenges Without CI
 
@@ -20,7 +19,7 @@ routeAlias: "continuous-integration"
 - **Consistency**: Avoiding dependencies on specific user data or development machine configurations.
 - **Collaboration**: Managing code changes in tandem with other developers without conflict.
 
-<div class="h-6" />
+<br />
 
 ## Benefits of Implementing CI
 

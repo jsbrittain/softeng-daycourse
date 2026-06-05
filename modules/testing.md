@@ -10,7 +10,7 @@ Code will always have issues
 - e.g. bugs, things we want to add or improve
 
 
-It's not enough to know about them, we need to **manage** them
+It's not enough to know about them, we need to <span v-mark.underline.orange="1">manage</span> them
 - Identify, record, prioritise
 
 ---
@@ -40,11 +40,12 @@ layout: two-cols-header
 ---
 
 # Repercussions of Software Bugs
-### Basic science
+
+## Basic science
 
 ::left::
 
-<div class="h-10"></div>
+<div class="h-5"></div>
 
 - Highly-cited papers published on multidrug resistance transporters (2001 - 2010)
 - Results couldn't be reproduced - 5 retractions
@@ -68,11 +69,12 @@ layout: two-cols-header
 ---
 
 # Repercussions of Software Bugs
-### Mars Climate Orbiter
+
+## Mars Climate Orbiter
 
 ::left::
 
-<div class="h-10"></div>
+<div class="h-5"></div>
 
 In 1999 orbiter was lost in space due to a simple unit conversion error (mix-up between metric and imperial units) in its navigation software, costing NASA **$125 million**.
 - Communication lost as it entered orbit
@@ -94,7 +96,8 @@ layout: two-cols-header
 ---
 
 # Repercussions of Software Bugs
-### Knight Capital
+
+## Knight Capital
 
 ::left::
 
@@ -123,16 +126,28 @@ In 2012 a software glitch in the trading system of Knight Capital, one of the la
 
 Manual testing _is_ necessary.
 
+<v-click>
+
 However...
 - Prone to error
 - Can be time-consuming, expensive
+
+</v-click>
+
+<v-click>
 
 Automated testing involves writing code to test software
 - Computers are great at repetitive tasks!
 - Define complex, repeatable processes with fewer errors
 - Saves effort in the long run
 
-Automated testing should supplement, but not replace, all manual testing
+</v-click>
+
+<v-click>
+
+Automated testing should **supplement**, but not **replace**, all manual testing
+
+</v-click>
 
 ---
 
@@ -162,7 +177,7 @@ celsius_to_fahrenheit(12.34)
 
 ```python {none|all|none}
 def test_celsius_to_fahrenheit():
-	assert celsius_to_fahrenheit(1.0) == 33.8
+    assert celsius_to_fahrenheit(1.0) == 33.8
     assert celsius_to_fahrenheit(12.34) == 54.212
 ```
 
@@ -175,7 +190,7 @@ def test_celsius_to_fahrenheit():
 import numpy as np
 
 def test_celsius_to_fahrenheit():
-	assert np.isclose(celsius_to_fahrenheit(1.0), 33.8)
+    assert np.isclose(celsius_to_fahrenheit(1.0), 33.8)
     assert np.isclose(celsius_to_fahrenheit(12.34), 54.212)
 ```
 
@@ -205,6 +220,7 @@ def add3(a, b, c):
 		Sum of three numbers
 	"""
 	...
+
 
 def test_add3(a, b, c):
 	assert add3(1, 2, 3) == 6
@@ -343,14 +359,23 @@ AI-generated tests can be trivial or miss important edge cases
 
 <span />
 
-pytest: a framework for automated testing
+**pytest**: a framework for automated testing
+
+<v-click>
+
 - Automatically finds any function starting in `test_` or ends in `_test`
 - Produces a report indicating test status
 - Many advanced features (e.g. exception testing, mocks, fixtures)
 - Install with `pip install pytest`
 - Run with `pytest` (or `pytest -v` for an itemised view)
 
+</v-click>
+
+<v-click>
+
 Testing investment should match the software's complexity and usage
+
+</v-click>
 
 <!--
 Rather than managing tests manually, PyTest provides a convenient package to collate

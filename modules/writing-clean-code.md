@@ -369,7 +369,9 @@ In code:
 
 ::right::
 
+::center
 <img src="../img/grapevne-py.png" alt="GRAPEVNE" width="80%" />
+::
 
 ---
 
@@ -448,7 +450,9 @@ def add3(a, b, c):
 
 </div>
 
+<v-click>
 A use case for AI
+</v-click>
 
 ::right::
 
@@ -720,7 +724,7 @@ Through field observations (N=13) and qualitative surveys (N=99), we find that w
 
 # Recording computational steps
 
-<div class="h-10" />
+<span />
 
 **A comment on workspaces in JuPyter / Matlab / R:**
 - A script / program records a series of computational steps
