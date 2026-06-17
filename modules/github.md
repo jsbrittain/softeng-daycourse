@@ -4,6 +4,34 @@ routeAlias: github
 transition: none
 ---
 
+# Project Management with GitHub
+
+## Issues and PRs direct AI contributions
+
+::left::
+
+AI is better at executing well-defined tasks than vague ones.
+
+A well-written GitHub issue is a better AI prompt than a vague description.
+
+<v-click>
+
+**This is not new.** Issues, milestones, and PRs were designed to coordinate human teams — breaking work into small, reviewable pieces. The same structure now lets you direct AI contributors with the same clarity.
+
+</v-click>
+
+::right::
+
+- Issues = task specification
+- Assignments = responsibility
+- PRs = code review gateway
+- Milestones = planning
+
+---
+layout: two-cols-header
+transition: none
+---
+
 # Collaborative Code Development
 
 ::left::
@@ -41,6 +69,7 @@ transition: none
 
 ---
 layout: two-cols-header
+transition: none
 ---
 
 # Collaborative Code Development
@@ -64,7 +93,7 @@ layout: two-cols-header
 
 - Use GitHub Issues for tracking tasks
 - Use Mentions for communication and referencing
-- Requires a good project and issue management framework
+- Well-defined issues are better AI prompts
 
 <div class="h-4" />
 
@@ -72,10 +101,6 @@ layout: two-cols-header
 <img src="../img/github-issues-list.png" class="border border-color-black" />
 <img src="../img/github-issue.png" class="border border-color-black" />
 </div>
-
-<!--
-Use this slide to launch into a guided tour of Github
--->
 
 ---
 layout: two-cols-header
@@ -165,9 +190,9 @@ rightClass: "items-center"
 
 <div class="h-10" />
 
-- If you find software that doesn’t have a license, that generally means you have **no permission** from the creators of the software to use, modify, or share the software
+- If you find software that doesn't have a license, that generally means you have **no permission** from the creators of the software to use, modify, or share the software
 - Where there are other contributors, they are license holders for their contributions, meaning **you** do not have permission to use, modify or share their contributions
-- If hosted on github the authors will have agreed to github’s own Terms of Service which permits others to view and fork your repository (for public repositories)
+- If hosted on github the authors will have agreed to github's own Terms of Service which permits others to view and fork your repository (for public repositories)
 
 ---
 
@@ -181,12 +206,12 @@ rightClass: "items-center"
 layout: instruction
 ---
 
-# Github
+# GitHub exercise
 
 ::left::
 
 ::center
-Create a new repository,<br />clone and push changes
+Create a repository, push changes
 ::
 
 ::right::
@@ -197,12 +222,10 @@ Instructor follow-along:
 
 - Create a new repository (Github interface)
   - Add a README.md, .gitignore and select a license
-- Open the repository in Codespaces (this mimics `git clone` on your local machine, see <Link to="reference-material" title="Reference material" />)
+- Open the repository in Codespaces
   - Add a file, stage and commit
   - Push changes to Github: `git push`
 - On the Github interface:
   - Explore the commit history
   - Create an Issue and assign yourself to work on it
 - (Optional) Create and push a new branch from codespaces, then switch between branches on Github
-
-::

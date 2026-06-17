@@ -2,6 +2,29 @@
 routeAlias: "testing"
 ---
 
+# Testing in the AI Era
+
+<span />
+
+## Tests are the contract you give AI
+
+<v-clicks>
+
+- Tests define what "correct" means
+- AI needs specifications — tests are **executable specifications**
+- AI can generate code from test cases alone
+- **Without tests, you cannot trust anything AI produces**
+
+</v-clicks>
+
+<v-click>
+
+**This is not new.** Tests were always about verification and regression prevention. What's changed is the speed at which code is produced — making tests more critical, not less.
+
+</v-click>
+
+---
+
 # All Software has Issues
 
 <span />
@@ -9,6 +32,9 @@ routeAlias: "testing"
 Code will always have issues
 - e.g. bugs, things we want to add or improve
 
+<div class="h-4" />
+
+With AI, code is generated faster — **more code, more potential issues**
 
 It's not enough to know about them, we need to <span v-mark.underline.orange="1">manage</span> them
 - Identify, record, prioritise
@@ -28,10 +54,9 @@ Humans are fallible! Our software will contain defects
 
 <v-click>
 
-**Validation**: are we building the right product?
-
-**Verification**: are we building the product right?
-  - Manual testing, automated testing, code reviews
+**AI-generated code introduces a new challenge**: plausible-looking but wrong code
+  - AI writes code that *looks* correct but has subtle bugs
+  - AI *confirms its own mistakes* if it writes both code and tests
 
 </v-click>
 
@@ -60,7 +85,7 @@ layout: two-cols-header
 
 <img src="../img/chem.png" alt="Chemistry" width="60%" />
 
-*“I didn't question it then. Obviously now I check it all the time."* - Geoffrey Chang
+*"I didn't question it then. Obviously now I check it all the time."* - Geoffrey Chang
 
 ::
 
@@ -70,53 +95,23 @@ layout: two-cols-header
 
 # Repercussions of Software Bugs
 
-## Mars Climate Orbiter
+## AI makes this worse
 
 ::left::
 
-<div class="h-5"></div>
-
-In 1999 orbiter was lost in space due to a simple unit conversion error (mix-up between metric and imperial units) in its navigation software, costing NASA **$125 million**.
-- Communication lost as it entered orbit
-- Root cause was unit conversion error
-- No proper "checks and tests" on the software responsible were conducted!
-
-::right::
-
-<div class="h-10"></div>
-
-::center
-
-<img src="../img/lunar-lander.png" alt="Lunar lander" width="80%" />
-
-::
-
----
-layout: two-cols-header
----
-
-# Repercussions of Software Bugs
-
-## Knight Capital
-
-::left::
-
-<div class="h-10"></div>
-
-In 2012 a software glitch in the trading system of Knight Capital, one of the largest U.S. trading firms, led to a loss of **$440 million** in just 30 minutes.
-- New code changes up until it went live
-- Changes activated old test code
-- Old code on single server produced thousands of incorrect stock purchase orders very rapidly
+AI generates code faster, but:
+- AI may **hallucinate APIs** that don't exist
+- AI may **miss edge cases** that a domain expert would catch
+- AI may **introduce security vulnerabilities**
+- AI **cannot reason about your specific research domain**
 
 ::right::
 
-<div class="h-15"></div>
+<v-click>
 
-::center
+The only defence: **automated tests that encode your domain knowledge**
 
-<img src="../img/knight-capital.png" alt="Lunar lander" width="90%" />
-
-::
+</v-click>
 
 ---
 
@@ -124,13 +119,14 @@ In 2012 a software glitch in the trading system of Knight Capital, one of the la
 
 <div class="h-5" />
 
-Manual testing _is_ necessary.
+Manual testing *is* necessary.
 
 <v-click>
 
 However...
 - Prone to error
 - Can be time-consuming, expensive
+- **Cannot keep up with AI code generation speed**
 
 </v-click>
 
@@ -139,13 +135,7 @@ However...
 Automated testing involves writing code to test software
 - Computers are great at repetitive tasks!
 - Define complex, repeatable processes with fewer errors
-- Saves effort in the long run
-
-</v-click>
-
-<v-click>
-
-Automated testing should **supplement**, but not **replace**, all manual testing
+- **Tests become the specification you give to AI**
 
 </v-click>
 
@@ -207,62 +197,73 @@ rightClass: "justify-center ml-10"
 
 ::left::
 
-```python {all|1|2-11|12|14-16}
+```python {all|1|2-11|12|14-17}
 def add3(a, b, c):
-	"""Add three numbers
+    """Add three numbers
 
-	This code adds three numbers together
+    This code adds three numbers together
 
-	Parameters:
-		a, b, c: numbers to add
+    Parameters:
+        a, b, c: numbers to add
 
-	Returns:
-		Sum of three numbers
-	"""
-	...
+    Returns:
+        Sum of three numbers
+    """
+    ...
 
 
 def test_add3(a, b, c):
-	assert add3(1, 2, 3) == 6
-	assert add3(1, 2, None) == None
+    assert add3(1, 2, 3) == 6
+    assert add3(1, 2, None) is None
 ```
 
 ::right::
 
 <v-click at="1">
 <h3>Code signature</h3>
-<div class="text-sm">How to run the function</div>
+<div class="text-sm">How to run the function — AI reads this</div>
 <div class="h-5"></div>
 </v-click>
 
 <v-click at="2">
 <h3>Documentation</h3>
-<div class="text-sm">What the function does and how to use it</div>
+<div class="text-sm">What the function does — AI reads this</div>
 <div class="h-5"></div>
 </v-click>
 
 <v-click at="3">
 <h3>Implementation</h3>
-<div class="text-sm">User does not need to know this</div>
+<div class="text-sm">AI can generate this from the test + docs</div>
 <div class="h-5"></div>
 </v-click>
 
 <v-click at="4">
 <h3>Test</h3>
-<div class="text-sm">Defines behaviour</div>
+<div class="text-sm">Defines behaviour — the <b>most important input for AI</b></div>
 </v-click>
 
 ---
-transition: "none"
----
 
-# Test Driven Development (TDD)
+# Test-First AI Development
 
-::centralise::
+<span />
 
-::center
-<img src="../img/tdd.png" alt="Test driven development" width="40%" />
-::
+A new workflow for coding with AI:
+
+1. **Write a test** that defines the desired behaviour
+2. **Ask AI to implement** just enough code to make the test pass
+3. **Run the test** — it should pass
+4. **Write more tests** for edge cases
+5. **Ask AI to handle new cases** — iterate
+
+<v-click>
+
+This is TDD (Test-Driven Development) adapted for AI:
+- The test is the **prompt**
+- The test is the **verification**
+- The test is the **documentation**
+
+</v-click>
 
 ---
 transition: "none"
@@ -273,11 +274,6 @@ transition: "none"
 <div>
 <b>Unit tests</b>: Test specific units of functionality, ensuring expected outputs from given inputs.
 </div>
-
-<!--
--
-innocuous change breaks code before release
--->
 
 ---
 transition: "none"
@@ -323,35 +319,29 @@ When working with a <b>legacy</b> codebase,
 </v-click>
 
 ---
-transition: "none"
----
 
-# Automated Testing
+# AI and Testing
 
-<div class="text-gray-400">
-<b>Unit tests</b>: Test specific units of functionality, ensuring expected outputs from given inputs.
-
-<b>Integration (functional) tests</b>: Test functional paths through the code, especially useful for exposing faults in unit interactions.
-</div>
-
-<b>Regression tests</b>: Ensure unchanged program output despite code modifications.
+<div class="h-4" />
 
 ::center
 
-<br />When working with <b>AI</b>, verify the code
+When working with <b>AI</b>, verify the code
 <br />behaves as expected with <b>tests</b>.
 
 <v-click>
 <br />When relying heavily on AI,
-<br />allow it to write <i><b>either</b></i> code <b><i>or</i></b> some tests.
-<br />Not both - this defeats the purpose of testing!
+<br />allow it to write <b><i>either</i></b> code <b><i>or</i></b> some tests.
+<br /><b>Not both</b> — this defeats the purpose of testing!
+</v-click>
+
+<v-click>
+
+<br />Why? AI has **confirmation bias** — it writes tests that pass on its own flawed code.
+
 </v-click>
 
 ::
-
-<!--
-AI-generated tests can be trivial or miss important edge cases
--->
 
 ---
 
@@ -377,29 +367,43 @@ Testing investment should match the software's complexity and usage
 
 </v-click>
 
-<!--
-Rather than managing tests manually, PyTest provides a convenient package to collate
-and run tests across a codebase, producing a reports with their status.
--->
-
 ---
 layout: instruction
 ---
 
-# Unit testing
+# Testing with AI
 
 ::left::
 
 ::center
-Write some unit tests
+Test-first AI exercise
 ::
 
 ::right::
 
 - Instructor: demo pytest install and running the test suite
-- Write tests for the `smoothie` function in the file `smoothie.py` (tip: read the docstring and try out the function to see how it behaves)
-- Run the test suite
+- **Write tests first** for the `smoothie` function in `smoothie.py`
+- Then ask AI to implement the function to pass the tests
+- **Then let AI write its own tests** — compare quality
 - Write a test that fails (to see the output)
-- Think of edge cases that can be added to the test suite (e.g. empty ingredients list?)
+- Think of edge cases that can be added to the test suite
 
-Want more practice? Check out `utils.py` and `test_utils.py`.
+---
+layout: instruction
+---
+
+# Testing with AI
+
+::left::
+
+::center
+AI writes both code and tests
+::
+
+::right::
+
+- Ask AI to write a function **and** its tests
+- Now intentionally introduce a bug in the function
+- Run the tests — do they catch the bug?
+- **AI often writes tests that pass despite bugs** (confirmation bias)
+- Lesson: always have a human write tests, or write tests *before* asking AI for code

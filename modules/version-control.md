@@ -4,26 +4,37 @@ rightClass: ""
 routeAlias: "version-control"
 ---
 
-# Code management & collaboration
+# Version Control as Coordination
+
+<span />
+
+## Git is how you coordinate with AI
 
 ::left::
 
-<div class="h-5" />
+- AI works on branches; you review on `main`
+- Commits are atomic units of AI-generated change
+- History lets you **revert** bad AI output
+- PRs are the human–AI code review gateway
 
-- *Version control* provides a full history of your project's software and other assets
-- Makes for easy:
-  - Backups
-  - Collaboration
-  - Recovering from dead-ends
-- What should be in version control?
-  - Code, documentation, tests, test data, analysis scripts
-  - Reports, papers, etc.
-- Packaging and deployment
+<v-click>
+
+**This is not new.** Version control was built for collaboration between humans. Branches, commits, and PRs let teams work together without stepping on each other. AI agents are now collaborators too, and the same workflow applies.
+
+</v-click>
+
+<v-click>
+
+AI can write Git commands — but **you** decide what to commit and merge.
+
+</v-click>
 
 ::right::
 
 ::center
-<img src="../img/phd-final.gif" alt="PhD comic: 'Final Version'" width="75%" />
+
+<img src="../img/phd-final.gif" alt="PhD comic: 'Final Version'" width="65%" />
+
 ::
 
 ---
@@ -34,9 +45,9 @@ routeAlias: "version-control"
 
 ::center
 
-<i>“If you’re not using version control,<br>
+<i>"If you're not using version control,<br>
 whatever else you might be doing with a computer,<br>
-it’s not science."</i><br>
+it's not science."</i><br>
 <br>
 Greg Wilson, SWC<br/><div style="font-size: 0.8rem;"><i>First Executive Director of Software Carpentry</i></div>
 
@@ -49,79 +60,21 @@ Greg Wilson, SWC<br/><div style="font-size: 0.8rem;"><i>First Executive Director
 <div class="h-5" />
 
 - These skills will save you time
-- Always assume others will use and develop your software
+- Always assume others will use and develop your software — **including AI agents**
 - Be clear on requirements and assume they will change
 - Funders are increasingly expecting software outputs to be sustainable and reusable
 
 ---
 
-# Version Control Systems
-
-::centralise::
-
-::center
-<div class="dark:bg-gray-200 pt-3 w-50%">
-  <img src="../img/git-logo.png" alt="Git logo" width="70%">
-  <div class="flex w-100% justify-center">
-    <img src="../img/svn-logo.png" alt="SVN logo" width="40%">
-    <img src="../img/mercurial-logo.png" alt="Mercurial logo" width="40%">
-  </div>
-</div>
-::
-
----
-layout: two-cols-header
----
-
 # Version Control
 
-::left::
+<span />
 
-<div class="h-10" />
+Three pillars — all still essential with AI:
 
-- **Backup**
-- Reproducibility
-- Collaboration
-
-::right::
-
-<img src="../img/version-control-backup.png" alt="Version control backup">
-
----
-layout: two-cols-header
----
-
-# Version Control
-
-::left::
-
-<div class="h-10" />
-
-- Backup
-- **Reproducibility**
-- Collaboration
-
-::right::
-
-<img src="../img/version-control-reproducibility.png" alt="Version control reproducibility" width="80%"/>
-
----
-layout: two-cols-header
----
-
-# Version Control
-
-<div class="h-10" />
-
-::left::
-
-- Backup
-- Reproducibility
-- **Collaboration**
-
-::right::
-
-<img src="../img/version-control-collaboration.png" alt="Version control collaboration">
+- **Backup** — AI can lose context; Git preserves everything
+- **Reproducibility** — pin exact code for each result
+- **Collaboration** — coordinate human + AI contributions
 
 ---
 
@@ -216,52 +169,8 @@ layout: two-cols-header
 <div class="h-10" />
 
 - **Staging**: Select files to include in the next Commit (`git add`)
-
 - **Commit**: Save the staged files to the repository (`git commit`) with a message describing the changes
-
----
-layout: instruction
----
-
-# Instructor demo
-
-::left::
-
-::center
-Making a commit
-::
-
-::right::
-
-::small
-
-- Check changes in the repository
-```bash
-git status            # check status
-git diff              # show changes
-```
-
-- Stage changes you want to keep
-```bash
-git add <file>        # specific file
-git add -u            # all 'tracked' files
-git add .             # all files
-```
-
-- Revert changes you don't want
-```bash
-git restore <file>    # supports <file>, -u, .
-```
-
-- Commit using CLI
-```bash
-git commit -m "Commit message"
-git log               # show commit history
-```
-
-- Much of this can be done using a GUI, e.g. GitHub Desktop, VS Code.
-
-::
+- AI can generate both commands, but **verify what AI staged** — did it include generated files?
 
 ---
 
@@ -326,14 +235,10 @@ gitGraph BT:
 
 </div>
 
+<br>
 
-- Main branch for tested, stable code, feature branches for new, separate units of work
-- Keeps main branch stable, allows independent work on features
-- Easy to discard unwanted features
-
-::center
-<br>To change branches: `git switch <branch_name>`
-::
+- Main branch for tested, stable code; feature branches for AI experiments
+- **AI should always work on a branch** — easy to discard bad output
 
 ---
 
@@ -369,43 +274,65 @@ gitGraph
 ::
 
 ---
+
+# AI and Version Control
+
+<div class="h-4" />
+
+<v-clicks>
+
+- AI can **write Git commands** — but you need to understand the concepts
+- AI can **generate commit messages** — evaluate quality, don't accept blindly
+- AI can **resolve merge conflicts** — but may not understand semantics
+- **Branch strategy**: AI experiments go on feature branches
+- **Review AI's Git history**: did it commit the right files? Good messages?
+
+</v-clicks>
+
+---
 layout: instruction
 ---
 
-# Version Control
+# Version Control + AI
 
 ::left::
 
 ::center
-```mermaid
-gitGraph BT:
-    commit id: 'Initial'
-    commit id: 'Second'
-    branch feature
-    commit id: 'Feature'
-    checkout main
-    merge feature tag: "v1.0"
-```
+AI-generated commit messages
 ::
 
 ::right::
 ::small
 
-- Make a change, stage and commit to the main branch directly
-  - `git add requirements.txt`
-  - `git commit -m "Add requirements.txt"`
-- Create a feature branch
-  - `git switch -c feature1`
-- Stage and commit all remaining changes to the feature branch
-  - `git add .`
-  - `git commit -m "Tidy-up project"`
-- Switch branches and take a look at the differences 
-  - `git switch main`
-- Merge your feature branch into main
-  - `git merge feature1`
+- Make a change to a file
+- Ask AI to generate a commit message: `git commit -m "<AI message>"`
+- Evaluate: is it accurate? descriptive? helpful?
+- Now ask AI to generate a **misleading** commit message
+- Lesson: **AI can help or deceive** — you must review
 
-<!--
-The '-c' flag on 'git switch' creates a new branch and switches to it.
--->
+::
+
+---
+layout: instruction
+---
+
+# Version Control + AI
+
+::left::
+
+::center
+Branches and merging
+::
+
+::right::
+::small
+
+- Create a feature branch: `git switch -c ai-experiment`
+- Ask AI to make changes and commit them
+- Switch to main, make a conflicting change
+- Ask AI to merge and resolve the conflict
+- Switch branches and take a look at the differences: `git switch main`
+- Merge your feature branch into main: `git merge ai-experiment`
+- Review what AI did
 
 ::

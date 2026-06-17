@@ -4,10 +4,22 @@ routeAlias: "workflow-managers"
 
 # Workflow Managers
 
+## AI-assisted pipeline design
+
+<v-clicks>
+
 - Manage larger pipelines
-- Maintains the **Recording Computational Steps** philosophy
 - Workflow managers encapsulate complex pipelines
 - Can speed up analyses by preventing redundant computation
+- **AI can help write workflow rules** — but you need to understand the DAG
+
+</v-clicks>
+
+<v-click>
+
+**This is not new.** Workflow managers encoded reproducibility and DAG-based execution long before AI. The DAG concept is the same; AI just helps you build and maintain it — and makes reproducibility even more critical.
+
+</v-click>
 
 ---
 
@@ -30,77 +42,72 @@ Workflows can entail a **description of required software**, which will be autom
 ::
 
 ---
+
+# AI + Workflow Managers
+
+<div class="h-4" />
+
+<v-clicks>
+
+- **Describe your pipeline in prose** → AI generates Snakefile rules
+- **AI can write individual rules** from function descriptions
+- **AI can debug workflow failures** — give it the error, get a fix
+- **AI can optimise for parallelisation** — add wildcards, split steps
+- But: **you must understand the DAG** to verify correctness
+
+</v-clicks>
+
+---
+
+# Workflow Managers
+
+- Manage larger pipelines
+- Maintains the **Recording Computational Steps** philosophy
+- Workflow managers encapsulate complex pipelines
+- Can speed up analyses by preventing redundant computation
+
+---
 layout: instruction
 ---
 
-# Snakemake
+# Prose-to-Snakefile exercise
 
 ::left::
 
 ::center
-Install Snakemake
+Describe pipeline, AI generates it
 ::
 
 ::right::
 
-Navigate to the course workflows repository:
-[github.com/OxfordRSE/softeng-daycourse-workflows](https://github.com/OxfordRSE/softeng-daycourse-workflows)
-and start a new codespace.
+- Navigate to the course workflows repository:
+  [github.com/OxfordRSE/softeng-daycourse-workflows](https://github.com/OxfordRSE/softeng-daycourse-workflows)
+- Start a new codespace
+- Write a prose description of a multi-step analysis:
+  - "First, generate 100 documents with random words. Then count word frequencies in each. Finally produce a chart of the top words."
+- Ask AI to generate a Snakefile
+- Install snakemake: `pip install snakemake`
+- Run it: `snakemake --cores 1`
+- Did AI get the DAG right?
 
-
-Installed `snakemake` with `pip`:
-```bash
-pip install snakemake
-```
-
-Verify that `snakemake` is installed by typing:
-```bash
-snakemake --version
-```
-
----
-layout: instruction
 ---
 
 # A simple workflow
 
-::left::
-
-::center
-Run a workflow by hand...
+Let's create a frequency plot of the words in a file.
 
 <br />
 
-<div class="text-sm">
-Before you start, generate a file with random words:
-
-```bash
-python generate.py
-```
-
-Let's create a frequency plot of the words in that file.
-</div>
-::
-
-::right::
-
-<p>
-Use another script to count the frequency of words in the file and output the results:
-<span v-mark.underline.orange="1">
+Use a script to count the frequency of words in the file and output the results:
 
 ```bash
 python count_words.py -in data/doc.txt -out output/wc.txt
 ```
 
-</span>
-</p>
-
-Form a bar chart of the word frequencies, and save it to `word_chart.txt`:
+Form a bar chart of the word frequencies, and save it to `words_chart.txt`:
 ```bash
 python words_chart.py
 ```
-
-Finally, you can view the results by opening `word_chart.txt`.
 
 ---
 transition: "none"
@@ -134,26 +141,6 @@ rule count_words:
 
 </v-click>
 
-<div class="h-7" />
-
-<v-click>
-
-::center
-
-```mermaid
-graph LR
-    A[ ]:::hidden --"data/doc.txt"--> B[count_words]
-    B --"output/wc.txt"--> C[words_chart]
-    C --"word_count.txt"--> D([ ]):::hidden
-    style A stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
-    style C stroke-dasharray: 5 5
-    style D stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
-```
-
-::
-
-</v-click>
-
 ---
 
 # Snakemake
@@ -182,31 +169,12 @@ rule words_chart:
 
 </v-click>
 
-<div class="h-7" />
-
-<v-click>
-
-::center
-
-```mermaid
-graph LR
-    A[ ]:::hidden --"data/doc.txt"--> B[count_words]
-    B --"output/wc.txt"--> C[words_chart]
-    C --"word_count.txt"--> D([ ]):::hidden
-    style A stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
-    style D stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
-```
-
-::
-
-</v-click>
-
 ---
 layout: two-cols-header
 class: "gap-4"
 ---
 
-# Snakemake
+# Snakemake complete workflow
 
 ::left::
 
@@ -248,9 +216,7 @@ Open `words_chart.txt` to see the results.
 
 ---
 
-# Snakemake
-
-<span />
+# Snakemake — multiple files
 
 What if we have more than one file?
 
@@ -258,150 +224,11 @@ What if we have more than one file?
 python generate.py -n 100 -w 1000
 ```
 
-<div class="h-8" />
-
-::center
-```mermaid {scale: 0.8}
-graph TD
-    A[ ] --"data/doc1.txt"--> A2[count_words]
-    B[ ] --"data/doc2.txt"--> B2[count_words]
-    C[ ] --"data/doc3.txt"--> C2[count_words]
-    E[ ] --"data/doc100.txt"--> E2[count_words]
-    AGGREGATE[words_chart]
-    A2 --> AGGREGATE
-    B2 --> AGGREGATE
-    C2 --> AGGREGATE
-    E2 --> AGGREGATE
-
-    style A stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
-    style B stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
-    style C stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
-    style E stroke-dasharray: 5 5, fill-opacity:0, stroke-opacity:0;
-```
-::
-
----
-layout: two-cols-header
-class: "gap-4"
-transition: "none"
----
-
-# Adapt to multiple files
-
-::left::
-
-```python {all|7,9,17}
-rule all:
-    input:
-        "words_chart.txt"
-
-rule count_words:
-    input:
-        "data/doc.txt"
-    output:
-        "output/wc.txt"
-    shell:
-        """
-        python count_words.py -in {input} -out {output}
-        """
-
-rule words_chart:
-    input:
-        "output/wc.txt"
-    output:
-        "words_chart.txt"
-    script:
-        "words_chart.py"
-```
-
----
-layout: two-cols-header
-class: "gap-4"
-transition: "none"
----
-
-# Adapt to multiple files
-
-::left::
-
-```python {7,9,17}
-rule all:
-    input:
-        "words_chart.txt"
-
-rule count_words:
-    input:
-        "data/doc.txt"
-    output:
-        "output/wc.txt"
-    shell:
-        """
-        python count_words.py -in {input} -out {output}
-        """
-
-rule words_chart:
-    input:
-        "output/wc.txt"
-    output:
-        "words_chart.txt"
-    script:
-        "words_chart.py"
-```
-
-::right::
-
-```python {7,9,17}
-rule all:
-    input:
-        "words_chart.txt"
-
-rule count_words:
-    input:
-        "data/doc{n}.txt"
-    output:
-        "output/wc{n}.txt"
-    shell:
-        """
-        python count_words.py -in {input} -out {output}
-        """
-
-rule words_chart:
-    input:
-        [f"output/wc{n}.txt" for n in range(1, 101)]
-    output:
-        "words_chart.txt"
-    script:
-        "words_chart.py"
-```
-
----
-layout: two-cols-header
-class: "gap-4"
----
-
-# Adapt to multiple files
-
-::left::
-
-```bash
-snakemake --snakefile multiplefiles.smk --cores all
-```
-
-<div class="h-10" />
-
-::center
 <v-click>
-<img src="../img/snakemake-words-dag.png" width="80%">
-</v-click>
-::
 
-::right::
+AI can add wildcards to scale the workflow:
 
 ```python
-rule all:
-    input:
-        "words_chart.txt"
-
 rule count_words:
     input:
         "data/doc{n}.txt"
@@ -411,56 +238,59 @@ rule count_words:
         """
         python count_words.py -in {input} -out {output}
         """
-
-rule words_chart:
-    input:
-        [f"output/wc{n}.txt" for n in range(1, 101)]
-    output:
-        "words_chart.txt"
-    script:
-        "words_chart.py"
 ```
+
+</v-click>
 
 ---
 
-# Snakemake
+# Snakemake — selective rebuilds
 
-- Selective rebuilds
-  - Only runs rules when their inputs (or scripts) are **newer than their outputs**
-  - If nothing is out of date, snakemake does nothing
+- Only runs rules when their inputs (or scripts) are **newer than their outputs**
+- If nothing is out of date, snakemake does nothing
 
 - Parallelisation
   ```
   snakemake --cores 8
   ```
 
-<div class="h-8" />
-
-::center
-<img src="../img/snakemake-selective-builds.png" width="80%">
-::
-
 ---
-layout: two-cols-header
-class: "gap-4"
-rightClass: "items-center justify-center"
+layout: instruction
 ---
 
-# Snakemake
+# AI-assisted workflow exercise
 
 ::left::
 
-More benefits:
-- Implementation agnostic
-- Run each rule in its own virtual environment (e.g. `conda` directive)
-- Modularise workflow (and reuse) (`module` directive)
-- Support for `temporary` and `protected` files
-
-Scheduling heuristic is applied to:
-- Maximise parallelization
-- Prefer high priority jobs
-- Subject to resource constraints
+::center
+Fix an AI-generated workflow
+::
 
 ::right::
 
-<img src="../img/snakemake-bigjob.png">
+- Ask AI to create a Snakefile for a 3-step pipeline
+- **Intentionally introduce a bug**: wrong input file name, circular dependency
+- Ask AI to identify and fix the bug
+- If AI can't fix it — can you?
+
+---
+layout: instruction
+---
+
+# AI-assisted workflow exercise
+
+::left::
+
+::center
+AI optimises for parallel execution
+::
+
+::right::
+
+- Start with a linear Snakefile (one file at a time)
+- Ask AI to modify it to use wildcards
+- Compare execution time:
+  ```bash
+  time snakemake --cores 1
+  time snakemake --cores all
+  ```

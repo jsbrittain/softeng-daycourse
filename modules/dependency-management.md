@@ -3,7 +3,7 @@ layout: two-cols-header
 routeAlias: "dependency-management"
 ---
 
-# Dependency management
+# Dependency management in the AI era
 
 ::left::
 
@@ -15,13 +15,45 @@ def main():
 ```
 
 ::center
-<br><br>
+<br>
+
 *<v-click>Which version of numpy?</v-click>*
+
 ::
+
+<v-click>
+
+AI can write `import` statements instantly.
+But which version? Does that package exist?
+**Dependency management is verification work.**
+
+<v-click>
+
+**This is not new.** Lock files, environments, and audits existed before AI. They ensured reproducibility for human teams. AI just raises the stakes — hallucinated packages and version drift are now realistic threats.
+
+</v-click>
+
+</v-click>
 
 ::right::
 
 <img src="../img/numpy-versions.png" alt="Numpy versions" />
+
+---
+
+# AI-Specific Dependency Risks
+
+<div class="h-4" />
+
+<v-clicks>
+
+- **Hallucinated packages**: AI may suggest nonexistent packages
+  - Real risk: if the name is plausible, someone could publish a malicious package with that name
+- **Outdated versions**: AI may not know about recent releases or security patches
+- **Compatibility errors**: AI may suggest packages that conflict with your environment
+- **Transitive dependencies**: AI may not consider the full dependency tree
+
+</v-clicks>
 
 ---
 layout: two-cols-header
@@ -54,12 +86,6 @@ rightClass: "items-center justify-center gap-10"
 <b>2025.01</b><br>
 <small>(year.month)</small>
 </div>
-
-<!---
-- Explain major, minor, patch version numbers here
-- Explain calendar versioning
-- Explain why we would use one over the other
--->
 
 ---
 layout: two-cols-header
@@ -117,81 +143,12 @@ Numpy v1 and v2 were no longer entirely compatible.
 
 The official release notes included the phrase:
 
-_“This major release includes <span v-mark.circle.red="3">breaking changes</span>…<br>
-including API changes …”_
+_"This major release includes <span v-mark.circle.red="3">breaking changes</span>…<br>
+including API changes …"_
 
 </v-click>
 
-<!--
-In the example given an informative error is provided to the user. However, some changes may be more surreptitious, such as rules over type promotion (float32 may be returned instead of float64 now when mixing types in expressions).
-
-API = Application Programming Interface, the function signature, how you interact with the library.
-
-Code written in one major may not work in another major version. How do we manage old and new codebases that rely on different versions of the same library?
--->
-
 ::
-
----
-layout: "three-cols-header"
-layoutClass: "gap-4"
-leftClass: "items-center justify-center"
-middleClass: "items-center justify-center"
-rightClass: "items-center justify-center"
-transition: "none"
----
-
-# Version conflict
-
-::left::
-
-<div class="flex flex-col items-center gap-0 p-4">
-  <p><b>Software A</b></p>
-  <p>numpy v1</p>
-  <p>Python 3.7</p>
-</div>
-
-::middle::
-
-<img class="border border-black" src="../img/laptop.jpg" alt="Laptop dependencies" />
-
-::right::
-
-<div class="flex flex-col items-center gap-0 p-4">
-  <p><b>Software B</b></p>
-  <p>numpy v2</p>
-  <p>Python 3.13</p>
-</div>
-
----
-layout: "three-cols-header"
-layoutClass: "gap-4"
-leftClass: "items-center justify-center"
-middleClass: "items-center justify-center"
-rightClass: "items-center justify-center"
----
-
-# Version conflict
-
-::left::
-
-<div class="flex flex-col items-center gap-0 bg-blue-50 dark:bg-blue-800 border border-black dark:border-white rounded-xl p-4">
-  <p><b>Software A</b></p>
-  <p>numpy v1</p>
-  <p>Python 3.7</p>
-</div>
-
-::middle::
-
-<img class="border border-black" src="../img/laptop.jpg" alt="Laptop dependencies" />
-
-::right::
-
-<div class="flex flex-col items-center gap-0 bg-green-50 dark:bg-green-800 border border-black dark:border-white rounded-xl p-4">
-  <p><b>Software B</b></p>
-  <p>numpy v2</p>
-  <p>Python 3.13</p>
-</div>
 
 ---
 
@@ -275,83 +232,6 @@ rightClass: "items-center justify-center"
 </div>
 
 ---
-layout: instruction
----
-
-# Dependency management
-
-::left::
-
-::center
-Numpy v2
-::
-
-::right::
-
-- Create a venv called "`venv_np2`":
-  ```bash
-  python -m venv venv_np2
-  ```
-- Activate the venv:
-  ```bash
-  source venv_np2/bin/activate
-  ```
-- Install `numpy` <small>(latest version)</small>:
-  ```bash
-  pip install numpy
-  ```
-- Run the software:
-  ```bash
-  python script2023.py          # should fail #
-  ```
-- Deactivate the venv:
-  ```bash
-  deactivate
-  ```
-
-<!--
-The script (that was written in 2023 using numpy v1) now fails.
-So how do we get the script to run correctly?
-- We can either change the script to be compatible with numpy v2 (time consuming and fragile to future changes), or
-- We can create a virtual environment with the correct version of numpy installed.
--->
-
----
-layout: instruction
----
-
-# Dependency management
-
-::left::
-
-::center
-Numpy v1
-::
-
-::right::
-
-- Create a venv called "`venv_np1`":
-  ```bash
-  python -m venv venv_np1
-  ```
-- Activate the venv:
-  ```bash
-  source venv_np1/bin/activate
-  ```
-- Install `numpy` <small>('pin' the version number)</small>:
-  ```bash
-  pip install "numpy==1.26.4"
-  ```
-- Run the software:
-  ```bash
-  python script2023.py        # should succeed #
-  ```
-- Deactivate the venv:
-  ```bash
-  deactivate
-  ```
-
----
 
 # Dependency management
 
@@ -372,54 +252,51 @@ To install the dependencies in a `requirements.txt` file, use the command:
 pip install -r requirements.txt
 ```
 
-<!--
-'-r' indicates a requirements file; although this doesnt have to be named `requirements.txt`, it is a common convention and means that the file is easily identifiable in the project.
-
-requirements.txt is not the best practise but, depending on the complexity of your project, it is a very simple standard solution that works well.
-
-For more complex projects, you would write a pyproject.toml
--->
+AI can generate this file for you — **but always verify the packages exist and are correct**
 
 ---
 layout: instruction
 ---
 
-# Dependency management
+# Dependency management — AI exercise
 
 ::left::
 
 ::center
-Create an environment that allows <br/> an old script to run
+Detect hallucinated packages
 ::
 
 ::right::
 
 ::small
 
-- Run the script `old_script.py` - it will tell you its requirements.
-- Create a `requirements.txt` file to record the dependencies and make it run.
+- Ask AI to write a requirements.txt for a data science project
+- Include some plausible but nonexistent packages in your prompt
+- Try to install: `pip install -r requirements.txt`
+- Run `pip-audit` to check for known vulnerabilities
+- Lesson: **AI-suggested dependencies must be verified**
 
-<div class="w-100% color-gray-600 bg-gray-300 dark:color-gray-600 dark:bg-gray-400 rounded">
-Outline:
-<ul>
-  <li>
-  Setup and activate a virtual environment:<br />
-  <code>python -m venv venv</code><br />
-  <code>source venv/bin/activate</code>
-  </li>
-  <li>
-  Create a <code>requirements.txt</code> file with the necessary package list. Install using:<br />
-  <code>pip install -r requirements.txt</code><br />
-  </li>
-  <li>
-  Run the software:<br />
-  <code>python old_script.py</code><br />
-  </li>
-  <li>
-  Adjust the dependencies and try again. Once the script runs successfully, deactivate the venv:<br />
-  <code>deactivate</code>
-  </li>
-</ul>
-</div>
+---
+layout: instruction
+---
 
+# Dependency management — AI exercise
+
+::left::
+
+::center
+AI resolves version conflicts
 ::
+
+::right::
+
+- Run the script `old_script.py` — it will tell you its requirements
+- Ask AI to identify the version conflict and create a working `requirements.txt`
+- Create a `venv` and install:
+  ```bash
+  python -m venv venv
+  source venv/bin/activate
+  pip install -r requirements.txt
+  ```
+- Run the software: `python old_script.py`
+- Adjust and retry until it works

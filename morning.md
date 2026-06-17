@@ -2,9 +2,15 @@
 routeAlias: morning
 ---
 
+# Software Engineering in the AI Era
+
 ::centralise::
 
 ## Morning Session
+
+---
+src: ./pages/ai-era-framing.md
+---
 
 ---
 src: ./pages/oxrse.md
@@ -63,7 +69,7 @@ src: ./pages/codespaces-intro-python.md
 
 ---
 
-# Reproducibility and collaboration
+# Context & Constraints
 
 - **<Link to="writing-clean-code" title="Writing Clean Code" />**
 - <Link to="testing" title="Testing" />
@@ -76,7 +82,7 @@ src: ./modules/writing-clean-code.md
 
 ---
 
-# Reproducibility and collaboration
+# Context & Constraints
 
 - <Link to="writing-clean-code" title="Writing Clean Code" />
 - **<Link to="testing" title="Testing" />**
@@ -89,7 +95,7 @@ src: ./modules/testing.md
 
 ---
 
-# Reproducibility and collaboration
+# Context & Constraints
 
 - <Link to="writing-clean-code" title="Writing Clean Code" />
 - <Link to="testing" title="Testing" />
@@ -102,7 +108,7 @@ src: ./modules/dependency-management.md
 
 ---
 
-# Reproducibility and collaboration
+# Context & Constraints
 
 - <Link to="writing-clean-code" title="Writing Clean Code" />
 - <Link to="testing" title="Testing" />

@@ -1,4 +1,4 @@
-# Crash Course on Software Engineering for Researchers
+# Software Engineering in the AI Era
 
 <div style="text-align: center">
 <a href="https://OxfordRSE.github.io/softeng-daycourse/">

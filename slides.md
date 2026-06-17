@@ -2,7 +2,7 @@
 theme: oxrse
 defaults:
   layout: standard
-title: Crash Course on Software Engineering for Researchers
+title: Software Engineering in the AI Era
 class: text-center
 transition: slide-left
 mdc: true
@@ -17,7 +17,7 @@ layout: cover
 layout: three-panels-header
 ---
 
-# Crash Course on Software Engineering for Researchers
+# Software Engineering in the AI Era
 
 ::left::
 
@@ -27,13 +27,15 @@ layout: three-panels-header
 
 ::small
 
-Writing clean code
+Context & Constraints
+
+Writing Clean Code
 
 Testing
 
-Dependency management
+Dependency Management
 
-Version control
+Version Control
 
 ::
 
@@ -45,13 +47,15 @@ Version control
 
 ::small
 
-Project management with Github
+Coordination
 
-Continuous Integration
+Project Management with GitHub
 
 Collaborative Coding
 
-Workflow managers
+Continuous Integration
+
+Workflow Managers
 
 ::
 

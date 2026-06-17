@@ -3,6 +3,42 @@ layout: two-cols-header
 routeAlias: "collaborative-coding"
 ---
 
+# Collaborative Coding with AI
+
+<span />
+
+## Treat AI like a junior developer
+
+::left::
+
+- Writes code fast, sometimes wrong
+- Never sleeps, works 24/7
+- Has no domain knowledge
+- Needs clear specifications
+- **Needs code review**
+
+::right::
+
+<v-click>
+
+The same tools that coordinate human teams coordinate human–AI teams:
+- Shared vs fork model
+- Feature branches
+- Pull requests
+- Code review
+
+</v-click>
+
+<v-click>
+
+**This is the point.** These collaboration models weren't designed for AI. They were designed for humans. They work for both — and AI makes them more valuable, not obsolete.
+
+</v-click>
+
+---
+layout: two-cols-header
+---
+
 # Collaborative Code Development Models
 
 ::left::
@@ -60,48 +96,92 @@ class Kangaroo(Animal):
 layout: instruction
 ---
 
-# Github
+# PR exercise: Human + AI
 
 ::left::
 
 ::center
-Contribute code: Pull Requests
+Human tests, AI implementation
 ::
 
 ::right::
 
-Instructor demo / follow-along:
-- Fork repository<br />
-  <small>[github.com/OxfordRSE/softeng-daycourse-zoo](https://github.com/OxfordRSE/softeng-daycourse-zoo)</small>
-- Open in codespaces (mimics `git clone`)
-- Create a feature branch (`git switch -c my-animal`)
-- Add an animal to the zoo
-- Stage, commit (to feature branch)
-- Submit a Pull Request
+- Fork the ZooShowcase repository
+- **Write a test** for a new animal *before* implementing it
+  - What sound does it make? What action?
+- Ask AI to implement the animal class that passes your test
+- Review AI's implementation
+- Create a feature branch, commit, submit a PR
+- Notice the workflow: **your test was the spec AI followed**
 
 ---
 layout: two-cols-header
 class: "gap-4"
 ---
 
-# Advantages of Code Review
+# Code Review in the AI Era
 
 ::left::
+
+### Reviewing AI code is different
+
+- AI code *looks* plausible but may be subtly wrong
+- Check for **hallucinated APIs** (using functions that don't exist)
+- Check for **edge cases** AI didn't consider
+- Check for **security vulnerabilities** AI may introduce
+- Check for **domain correctness** — does it make scientific sense?
+
+::right::
+
+<v-click>
+
+### What hasn't changed
 
 - Identifies defects early in the process
 - Cost-effective error removal
 - Enhances team learning and collaboration
 - Improves overall team software development process
-- Increasingly, AI 'reviewers' are able to check your code for common issues, _but_ human review is still essential to provide context and understanding
+
+</v-click>
+
+---
+
+# Code Review and AI
+
+<div class="h-4" />
+
+<v-clicks>
+
+- AI can act as a **first-pass reviewer** — checks for style, common bugs
+- AI can generate **diff summaries** for PR descriptions
+- AI can suggest **improvements** to code
+- **Human review is still essential** — AI lacks domain understanding
+- AI's review is *useful* but not *sufficient*
+
+</v-clicks>
+
+---
+layout: instruction
+---
+
+# AI Code Review exercise
+
+::left::
+
+::center
+Review an AI-generated PR
+::
 
 ::right::
 
-<div class="h-4" />
-<img
-  src="../img/benefits-of-code-review.png"
-  alt="Benefits of code review"
-  width="100%"
->
+- Ask AI to add a new animal to the ZooShowcase and create a PR
+- Review the PR:
+  - Does the code do what it claims?
+  - Are there edge cases?
+  - Does it follow the project patterns?
+  - Are there security concerns?
+- Give constructive review feedback
+- Ask AI to address your feedback
 
 ---
 layout: instruction
@@ -112,7 +192,7 @@ layout: instruction
 ::left::
 
 ::center
-Code Review
+Code Review + Test
 ::
 
 ::right::
@@ -121,5 +201,5 @@ Instructor demo:
 - Code Review
 
 Task:
-- Add a test *in the same feature branch*, testing locally to ensure that it passes before commiting
+- Add a test *in the same feature branch*, testing locally to ensure that it passes before committing
 - Navigate to your pull request, notice that your PR has been updated with your test code
