@@ -1,11 +1,11 @@
 # Software Engineering in the AI Era
 
 <div style="text-align: center">
-<a href="https://OxfordRSE.github.io/softeng-daycourse/">
+<a href="https://jsbrittain.github.io/softeng-daycourse/">
 <img src="img/cover.png" width="50%" style="border: 1px solid black" alt="Slides" />
 </a>
 
-[View the slides](https://OxfordRSE.github.io/softeng-daycourse/)
+[View the slides](https://jsbrittain.github.io/softeng-daycourse/)
 </div>
 
 ## Course description
